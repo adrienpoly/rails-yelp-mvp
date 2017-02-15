@@ -6,15 +6,14 @@ class RestaurantsController < ApplicationController
     @restaurants = Restaurant.all
   end
 
-  # def search
-  #   # @restaurants = restaurant.last(2)
-  #   @restaurants = restaurant.where("articles.title or articles.content LIKE ?", "%#{params[:q]}%")
+  def search
+    @restaurants = Restaurant.where("name LIKE ? OR category LIKE ?", "%#{params[:q]}%", "%#{params[:q]}%")
 
-  #   render :index
-  # end
+    render :index
+  end
 
   def show
-
+    @review = Review.new
   end
 
   def new

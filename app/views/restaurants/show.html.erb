@@ -2,17 +2,25 @@
   <div class="row">
     <div class="col-sm-8 col-sm-offset-2">
       <div class="restaurant">
-        <h2><%= @restaurant.name %></h2>
-        <address><%= @restaurant.address %></address>
-        <p><%= @restaurant.phone_number %></p>
-        <p><%= @restaurant.category.capitalize %></p>
-      </div>
-      <div class="reviews">
+        <div class="restaurant-content">
+          <h2><%= @restaurant.name %></h2>
+          <%= render 'shared/stars', rating: @restaurant.average_rating%>
+          (<%= @restaurant.reviews.size %> avis)
+          <p><%= @restaurant.address %></p>
+          <p><%= @restaurant.phone_number %></p>
+          <p><%= @restaurant.category.capitalize %></p>
+        </div>
+
         <%= link_to 'Add a review', new_restaurant_review_path(@restaurant), class: "btn btn-primary btn-lg" %>
+
+      </div>
+      <%= render 'reviews/form' %>
+      <div class="reviews">
         <% @restaurant.reviews.each do |review| %>
+
           <div class="review">
-            <p><%= review.content %></p>
-            <p><%= review.rating %></p>
+            <div class="review-content"><%= review.content %></div>
+            <%= render 'shared/stars', rating: review.rating %>
           </div>
 
         <% end %>

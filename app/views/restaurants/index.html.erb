@@ -1,18 +1,23 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-8 col-sm-offset-2">
-      <ul class="list-unstyled">
+    <!-- <div class="col-sm-10 col-sm-offset-1"> -->
+      <!-- <ul class="list-unstyled restaurants"> -->
         <% @restaurants.each do |restaurant|  %>
-          <li>
-            <%= link_to restaurant_path(restaurant) do %>
-              <h2><%= restaurant.name %></h2>
-            <% end %>
-            <address><%= restaurant.address %></address>
-            <p><%= restaurant.phone_number %></p>
-            <p><%= restaurant.category %></p>
-          </li>
+          <!-- <li> -->
+
+            <div class="col-sm-4 restaurant-card">
+              <%= link_to restaurant_path(restaurant) do %>
+                <h2><%= restaurant.name %></h2>
+              <% end %>
+              <%= render 'shared/stars', rating: restaurant.average_rating%>
+              (<%= restaurant.reviews.size %> avis)
+              <p><%= restaurant.address %></p>
+              <p><%= restaurant.phone_number %></p>
+              <p><%= restaurant.category %></p>
+            </div>
+          <!-- </li> -->
         <% end %>
-      </ul>
-    </div>
+      <!-- </ul> -->
+    <!-- </div> -->
   </div>
 </div>
