@@ -4,13 +4,25 @@
 
 
 .reviews{
-  padding-top: 50px;
+  margin-top: 50px;
+  color: $dark-gray;
+  // border-radius: 4px;
+  // box-shadow: $border-shadow;
+
+  .review-form{
+    margin: 20px;
+    background-color: $gray;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: $border-shadow;
+  }
   .review{
     display: flex;
     justify-content: space-between;
     background-color: #FFF;
-    padding: 10px;
-    margin: 5px;
+    padding: 20px;
+    margin: 20px;
+    // margin: 10px;
     box-shadow: $border-shadow;
     border-radius: 4px;
   }

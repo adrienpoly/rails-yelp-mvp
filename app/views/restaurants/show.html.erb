@@ -1,3 +1,7 @@
+<% content_for(:title_tag) do %>
+  <%= @restaurant.name %>
+<% end %>
+
 <div class="container">
   <div class="row">
     <div class="col-sm-8 col-sm-offset-2">
@@ -11,11 +15,14 @@
           <p><%= @restaurant.category.capitalize %></p>
         </div>
 
-        <%= link_to 'Add a review', new_restaurant_review_path(@restaurant), class: "btn btn-primary btn-lg" %>
+        <%#= link_to 'Add a review', new_restaurant_review_path(@restaurant), class: "btn btn-primary btn-lg" %>
 
       </div>
-      <%= render 'reviews/form' %>
       <div class="reviews">
+
+        <div class="review-form">
+          <%= render 'reviews/form' %>
+        </div>
         <% @restaurant.reviews.each do |review| %>
 
           <div class="review">
